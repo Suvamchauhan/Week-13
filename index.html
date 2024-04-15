@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>SVG Animation</title>
+    <!-- This introduction to SVG animation inspired a great article by Julian Shapiro at http://davidwalsh.name/svg-animation --> 
+    <style>
+        body{
+            background-color: rgb(215, 221, 221);
+        }
+        /* STEP 2: Style the SVG and the child elements directly using fill, stroke, and stroke-width */
+            circle {
+            fill: rgb(255, 251, 0); 
+            stroke:  rgb(255, 81, 0); 
+            stroke-width: 2.5px; 
+        }
+
+        rect {
+            fill: rgb(255, 81, 0); 
+            stroke: rgb(255, 251, 0); 
+            stroke-width: 1.5px; 
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- STEP 3: Attach the Velocity library to animate SVG with ease -->
+    <script src="./js/velocity.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+    // STEP 4: use the velocity method to animate the SVG elements
+            $('circle').velocity({
+                cx: '+=150', 
+                cy: '+=150', 
+            }, {
+                duration: 2000, 
+                loop: true 
+            });
+            
+            $('rect').velocity({
+                x: '+=250', 
+                y: '+=250', 
+            }, {
+                duration: 1200, 
+                loop: true 
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- STEP 1: Build out an SVG element or two (a circle and rect are good here) -->
+<svg width="1000" height="1000">
+    <circle cx="300" cy="70" r="70"/> 
+    <rect x="150" y="200" width="150" height="150"/> 
+</svg>
+</body>
+</html>
+
+
